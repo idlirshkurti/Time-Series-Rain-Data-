@@ -1,4 +1,4 @@
-########### Seasonal State Space Model(rain) ##############
+# --------------- Seasonal State Space Model(rain) ---------------- #
 
 build = function(parm) {
 r = parm[1]; q = parm[2]
