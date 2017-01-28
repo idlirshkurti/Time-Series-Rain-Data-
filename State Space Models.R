@@ -1,5 +1,4 @@
 # --------------- Seasonal State Space Model(rain) ---------------- #
-
 build = function(parm) {
 r = parm[1]; q = parm[2]
 mod_s = dlmModSeas(12, dV=r^2, dW=c(q^2, rep(0,10)))
@@ -22,7 +21,7 @@ autoplot(smth$s)
 # Residual diagnostics
 tsdiag(filt)
 
-########### Seasonal State Space Model(tmax) ##############
+# -------------- Seasonal State Space Model(tmax) ------------------ #
 build = function(parm) {
 r = parm[1]; q = parm[2]
 mod_s = dlmModSeas(12, dV=r^2, dW=c(q^2, rep(0,10)))
@@ -42,9 +41,9 @@ m_s = smth$s[,3]
 d_s = 1.96*sqrt(simplify2array(dlmSvd2var(smth$U.S, smth$D.S))[3,3,])
 grid.arrange(p1,p,ncol=1)
 
-######## Seasonal State Space Model With Linear Trend (rain) #################
-# Build a state-space model with polynomial trend
-# plus a seasonal component
+# ------- Seasonal State Space Model With Linear Trend (rain) ------- #
+# Build a state-space model with polynomial trend plus a seasonal component
+
 build = function(parm) {
 a = parm[1]; r = parm[2]; q = parm[3]; b = parm[4]
 mod = dlmModPoly(2, dV=r^2)
